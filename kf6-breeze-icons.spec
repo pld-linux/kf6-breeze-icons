@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.2
+%define		kdeframever	6.3
 %define		qtver		5.15.2
 %define		kfname		breeze-icons
 
 Summary:	breeze icons
 Name:		kf6-%{kfname}
-Version:	6.2.0
+Version:	6.3.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	e387144c042112f6bff82e645fc6efe9
+# Source0-md5:	30ef8a37e54a44fb80753f20afe3ce05
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
@@ -25,8 +25,8 @@ BuildRequires:	qt6-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	kf6-dirs
 Requires:	%{name}-data = %{version}-%{release}
+Requires:	kf6-dirs
 Obsoletes:	breeze-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -83,8 +83,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
+%ghost %{_libdir}/libKF6BreezeIcons.so.?
+%attr(755,root,root) %{_libdir}/libKF6BreezeIcons.so.6.*
 
 %files data
 %defattr(644,root,root,755)
@@ -93,6 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%dir %{_libdir}/cmake/KF6BreezeIcons
-%{_libdir}/cmake/KF6BreezeIcons/KF6BreezeIconsConfig.cmake
-%{_libdir}/cmake/KF6BreezeIcons/KF6BreezeIconsConfigVersion.cmake
+%{_includedir}/KF6/BreezeIcons
+%{_libdir}/cmake/KF6BreezeIcons
+%{_libdir}/libKF6BreezeIcons.so
