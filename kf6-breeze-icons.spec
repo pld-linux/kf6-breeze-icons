@@ -32,8 +32,6 @@ Requires:	kf6-dirs
 Obsoletes:	breeze-icon-theme < 6.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_enable_debug_packages	0
-
 %description
 Breeze-icons is a freedesktop.org compatible icon theme.
 
@@ -93,8 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%ghost %{_libdir}/libKF6BreezeIcons.so.?
-%attr(755,root,root) %{_libdir}/libKF6BreezeIcons.so.6.*
+%attr(755,root,root) %{_libdir}/libKF6BreezeIcons.so.*.*.*
+%ghost %{_libdir}/libKF6BreezeIcons.so.6
 
 %files data
 %defattr(644,root,root,755)
