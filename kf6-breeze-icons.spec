@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Motyw ikon Breeze
 Name:		kf6-%{kfname}
 Version:	6.14.0
 Release:	1
-License:	LGPL v2.1+
+License:	LGPL v2.1+ (library), LGPL v3+ (icons)
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	b132c475a7e389e6f7d36323279a7f3d
@@ -41,6 +41,7 @@ Breeze-icons to motyw ikon zgodny z freedesktop.org.
 %package data
 Summary:	Data files for %{kfname}
 Summary(pl.UTF-8):	Dane dla %{kfname}
+License:	LGPL v3+
 Group:		X11/Applications
 Obsoletes:	kf5-breeze-icons-data < 5.240
 BuildArch:	noarch
@@ -54,6 +55,7 @@ Dane dla %{kfname}.
 %package devel
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
+License:	LGPL v2.1+
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -96,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files data
 %defattr(644,root,root,755)
+%doc COPYING-ICONS README.md
 %{_iconsdir}/breeze
 %{_iconsdir}/breeze-dark
 
