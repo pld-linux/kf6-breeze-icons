@@ -5,7 +5,8 @@
 %define		qtver		5.15.2
 %define		kfname		breeze-icons
 
-Summary:	breeze icons
+Summary:	Breeze icons theme
+Summary(pl.UTF-8):	Motyw ikon Breeze
 Name:		kf6-%{kfname}
 Version:	6.14.0
 Release:	1
@@ -30,11 +31,13 @@ Requires:	kf6-dirs
 Obsoletes:	breeze-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
 %define		_enable_debug_packages	0
 
 %description
 Breeze-icons is a freedesktop.org compatible icon theme.
+
+%description -l pl.UTF-8
+Breeze-icons to motyw ikon zgodny z freedesktop.org.
 
 %package data
 Summary:	Data files for %{kfname}
@@ -75,16 +78,16 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 %ninja_build -C build test
 %endif
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
