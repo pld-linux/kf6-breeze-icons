@@ -14,7 +14,7 @@ License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	b132c475a7e389e6f7d36323279a7f3d
-URL:		https://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
@@ -29,7 +29,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	%{name}-data = %{version}-%{release}
 Requires:	kf6-dirs
-Obsoletes:	breeze-icon-theme
+Obsoletes:	breeze-icon-theme < 6.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_enable_debug_packages	0
@@ -44,6 +44,7 @@ Breeze-icons to motyw ikon zgodny z freedesktop.org.
 Summary:	Data files for %{kfname}
 Summary(pl.UTF-8):	Dane dla %{kfname}
 Group:		X11/Applications
+Obsoletes:	kf5-breeze-icons-data < 5.240
 BuildArch:	noarch
 
 %description data
