@@ -1,8 +1,9 @@
 #
 # Conditional build:
-%bcond_with	tests		# build with tests
+%bcond_with	tests		# automatic tests
+
 %define		kdeframever	6.14
-%define		qtver		5.15.2
+%define		qtver		6.7.0
 %define		kfname		breeze-icons
 
 Summary:	Breeze icons theme
@@ -16,12 +17,15 @@ Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{v
 # Source0-md5:	b132c475a7e389e6f7d36323279a7f3d
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= %{qtver}
+%{?with_tests:BuildRequires:	Qt6Test-devel >= %{qtver}}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	gettext-devel
 BuildRequires:	kf6-extra-cmake-modules >= %{version}
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	python3 >= 1:3
+BuildRequires:	python3-lxml
 BuildRequires:	qt6-linguist >= %{qtver}
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.605
