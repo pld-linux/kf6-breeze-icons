@@ -3,7 +3,8 @@
 %bcond_with	tests		# automatic tests
 
 %define		kdeframever	6.14
-%define		qtver		6.7.0
+%define		kf_ver		%{version}
+%define		qt_ver		6.7.0
 %define		kfname		breeze-icons
 
 Summary:	Breeze icons theme
@@ -16,19 +17,19 @@ Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	b132c475a7e389e6f7d36323279a7f3d
 URL:		https://kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-%{?with_tests:BuildRequires:	Qt6Test-devel >= %{qtver}}
+BuildRequires:	Qt6Core-devel >= %{qt_ver}
+BuildRequires:	Qt6Gui-devel >= %{qt_ver}
+%{?with_tests:BuildRequires:	Qt6Test-devel >= %{qt_ver}}
 BuildRequires:	cmake >= 3.16
-BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{version}
+BuildRequires:	gettext-tools
+BuildRequires:	kf6-extra-cmake-modules >= %{kf_ver}
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3
 BuildRequires:	python3-lxml
-BuildRequires:	qt6-linguist >= %{qtver}
+BuildRequires:	qt6-linguist >= %{qt_ver}
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 1.605
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	%{name}-data = %{version}-%{release}
