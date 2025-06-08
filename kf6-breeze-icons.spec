@@ -47,6 +47,7 @@ Summary:	Data files for %{kfname}
 Summary(pl.UTF-8):	Dane dla %{kfname}
 License:	LGPL v3+
 Group:		X11/Applications
+Provides:	kf5-breeze-icons-data = %{version}-%{release}
 Obsoletes:	kf5-breeze-icons-data < 5.240
 BuildArch:	noarch
 
