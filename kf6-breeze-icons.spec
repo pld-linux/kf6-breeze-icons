@@ -11,7 +11,7 @@ Summary:	Breeze icons theme
 Summary(pl.UTF-8):	Motyw ikon Breeze
 Name:		kf6-%{kfname}
 Version:	6.14.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+ (library), LGPL v3+ (icons)
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
