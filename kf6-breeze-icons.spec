@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# automatic tests
 
-%define		kdeframever	6.27
+%define		kdeframever	6.28
 %define		kf_ver		%{version}
 %define		qt_ver		6.7.0
 %define		kfname		breeze-icons
@@ -10,12 +10,12 @@
 Summary:	Breeze icons theme
 Summary(pl.UTF-8):	Motyw ikon Breeze
 Name:		kf6-%{kfname}
-Version:	6.27.0
+Version:	6.28.0
 Release:	1
 License:	LGPL v2.1+ (library), LGPL v3+ (icons)
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	bb43e03226b54361c1ffef23dc107be3
+# Source0-md5:	a71b321c8a87cd964271c4dd82ae5fbc
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6Gui-devel >= %{qt_ver}
